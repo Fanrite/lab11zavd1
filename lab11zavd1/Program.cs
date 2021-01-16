@@ -11,6 +11,7 @@ namespace lab11zavd1
         static void Main(string[] args)
         {
             Console.WriteLine($"testiy git");
+            Console.WriteLine($"a teper z nouta");
             Console.ReadKey();
         }
     }
