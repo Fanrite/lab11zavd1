@@ -32,12 +32,12 @@ namespace lab11zavd1
         }
         static void Main(string[] args)
         {
-            string outp = "";
-            double min = 10, max = 40, sum;
+            double min = 10, max = 40;
         start:
+            string outp = "";
             int i = 0, n = 10;
+            double sum = 0;
             double[] arr;
-
 
             //input min & max 
             if (!Inputdata(ref min, "vvedit minimalne 4slo:"))
@@ -45,20 +45,21 @@ namespace lab11zavd1
             if (!Inputdata(ref max, "vvedit maxsimalne 4slo:"))
                 return;
 
+            arr = new double[n];
 
+            Random random = new Random();
 
+            for (; i < n; i++)
+            {
+                arr[i] = min + random.NextDouble() * (max - min);
+                sum += arr[i];
+            }
 
+            for (i = 0; i < n; i++)
+                outp += $" array[{i}]={arr[i]}";
 
-
-
-
-
-
-
-
-
-
-
+            if (MessageBox.Show(outp + $"\nSumma:{sum}" + "\n\nPovtor?", "Rezultat", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                goto start;
         }
     }
 }
